@@ -1,3 +1,3 @@
-module github.com/random-expermients/oci-spec-analysis
+module github.com/random-experiments/oci-spec-analysis
 
 go 1.22

@@ -21,7 +21,7 @@
 #   .layers[] array and are never pushed to the registry.
 #
 # After the build, run:
-#   crane manifest quay.io/random-expermients/oci-spec-analysis | jq '.layers | length'
+#   crane manifest quay.io/random-experiments/oci-spec-analysis | jq '.layers | length'
 # You will see 2, not the ~10+ layers that golang:1.22-alpine would produce.
 # -----------------------------------------------------------------------------
 FROM golang:1.22-alpine AS builder
@@ -80,7 +80,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
 #   - No shell, no package manager → smaller attack surface.
 #
 #   Verify the layer count after pushing:
-#     crane manifest --platform linux/amd64 quay.io/random-expermients/oci-spec-analysis \
+#     crane manifest --platform linux/amd64 quay.io/random-experiments/oci-spec-analysis \
 #       | jq '.layers | length'
 # -----------------------------------------------------------------------------
 FROM gcr.io/distroless/static:nonroot
@@ -99,7 +99,7 @@ ARG BUILD_DATE=unknown
 # defined in the OCI Image Spec.
 #
 # Verify with:
-#   crane config quay.io/random-expermients/oci-spec-analysis \
+#   crane config quay.io/random-experiments/oci-spec-analysis \
 #     | jq '.config.Labels'
 #
 # You should see:
@@ -112,7 +112,7 @@ LABEL org.opencontainers.image.title="oci-spec-analysis" \
       org.opencontainers.image.version="${VERSION}" \
       org.opencontainers.image.revision="${GIT_COMMIT}" \
       org.opencontainers.image.created="${BUILD_DATE}" \
-      org.opencontainers.image.source="https://github.com/random-expermients/oci-spec-analysis" \
+      org.opencontainers.image.source="https://github.com/random-experiments/oci-spec-analysis" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.base.name="gcr.io/distroless/static:nonroot"
 

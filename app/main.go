@@ -29,7 +29,7 @@ var (
 	manifestDigest = "unknown" // set via --build-arg MANIFEST_DIGEST (post-push, or left unknown for first build)
 	configDigest   = "unknown" // set via --build-arg CONFIG_DIGEST
 	layerCountStr  = "2"       // set via --build-arg LAYER_COUNT; distroless gives us exactly 2
-	registry       = "quay.io/random-expermients/oci-spec-analysis"
+	registry       = "quay.io/random-experiments/oci-spec-analysis"
 	baseImage      = "gcr.io/distroless/static:nonroot"
 	builtBy        = "kaniko"
 )
@@ -51,7 +51,7 @@ type OCIInfo struct {
 // Each field corresponds to something you can independently verify with `crane` or `curl`.
 type OCIConcepts struct {
 	// ManifestDigest is the sha256 of the Image Manifest JSON blob in the registry.
-	// Verify: crane digest quay.io/random-expermients/oci-spec-analysis
+	// Verify: crane digest quay.io/random-experiments/oci-spec-analysis
 	ManifestDigest string `json:"manifest_digest"`
 
 	// ConfigDigest is the sha256 of the image config blob.

@@ -1,12 +1,12 @@
 # OCI Image Spec — Concepts in This Image
 
 This document maps every OCI Image Spec term to something you can directly
-observe in `quay.io/random-expermients/oci-spec-analysis`.
+observe in `quay.io/random-experiments/oci-spec-analysis`.
 
 Run the commands below after the image is pushed to Quay.
 
 ```bash
-IMAGE=quay.io/random-expermients/oci-spec-analysis
+IMAGE=quay.io/random-experiments/oci-spec-analysis
 ```
 
 ---
@@ -151,7 +151,7 @@ Expected output:
   "org.opencontainers.image.version":     "0.1.0",
   "org.opencontainers.image.revision":    "<git-commit>",
   "org.opencontainers.image.created":     "2025-...",
-  "org.opencontainers.image.source":      "https://github.com/random-expermients/oci-spec-analysis",
+  "org.opencontainers.image.source":      "https://github.com/random-experiments/oci-spec-analysis",
   "org.opencontainers.image.licenses":    "Apache-2.0",
   "org.opencontainers.image.base.name":   "gcr.io/distroless/static:nonroot"
 }

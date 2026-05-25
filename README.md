@@ -10,7 +10,7 @@ terminology.
 | OCI concept | Where you see it |
 |---|---|
 | Image Manifest | `make inspect-manifest` |
-| Image Index (multi-arch) | `crane manifest quay.io/random-expermients/oci-spec-analysis` |
+| Image Index (multi-arch) | `crane manifest quay.io/random-experiments/oci-spec-analysis` |
 | Config blob | `make inspect-config` |
 | Layer blobs (exactly 2) | `make inspect-layers` |
 | OCI Annotations | `crane config … \| jq '.config.Labels'` |
@@ -59,14 +59,14 @@ make local-run
 ### Build the image locally
 
 ```bash
-make image-build IMAGE=quay.io/random-expermients/oci-spec-analysis
+make image-build IMAGE=quay.io/random-experiments/oci-spec-analysis
 make image-run
 ```
 
 ### Inspect the OCI spec (after push)
 
 ```bash
-export IMAGE=quay.io/random-expermients/oci-spec-analysis
+export IMAGE=quay.io/random-experiments/oci-spec-analysis
 
 # See the Image Index and platform manifest
 make inspect-manifest
@@ -92,7 +92,7 @@ compiled in at build time via `-ldflags`:
   "version": "0.1.0",
   "git_commit": "abc1234",
   "built_by": "kaniko",
-  "registry": "quay.io/random-expermients/oci-spec-analysis",
+  "registry": "quay.io/random-experiments/oci-spec-analysis",
   "oci_concepts": {
     "manifest_digest": "sha256:...",
     "config_digest":   "sha256:...",
