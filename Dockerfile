@@ -85,6 +85,12 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
 # -----------------------------------------------------------------------------
 FROM gcr.io/distroless/static:nonroot
 
+# Re-declare ARGs after the second FROM so they are in scope for the LABEL
+# instructions below. In multi-stage builds each stage has its own ARG scope.
+ARG GIT_COMMIT=unknown
+ARG VERSION=0.1.0
+ARG BUILD_DATE=unknown
+
 # -----------------------------------------------------------------------------
 # OCI standard image annotations (opencontainers/image-spec §Annotations)
 #

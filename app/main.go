@@ -13,14 +13,15 @@ import (
 // Build-time variables — injected via -ldflags by the Dockerfile.
 // Each variable maps to a concept in the OCI Image Spec:
 //
-//   gitCommit   → stored in the image config blob under .config.Labels
-//                 (org.opencontainers.image.revision)
-//   version     → stored in the image config blob under .config.Labels
-//                 (org.opencontainers.image.version)
-//   manifestDigest → the sha256 of the Image Manifest itself; passed in as a
-//                 build-arg so the running container can report it
-//   configDigest  → the sha256 of the config blob
-//   layerCount    → number of layers in the manifest .layers[] array
+//	gitCommit   → stored in the image config blob under .config.Labels
+//	              (org.opencontainers.image.revision)
+//	version     → stored in the image config blob under .config.Labels
+//	              (org.opencontainers.image.version)
+//	manifestDigest → the sha256 of the Image Manifest itself; passed in as a
+//	              build-arg so the running container can report it
+//	configDigest  → the sha256 of the config blob
+//	layerCount    → number of layers in the manifest .layers[] array
+//
 // ---------------------------------------------------------------------------
 var (
 	gitCommit      = "unknown"
