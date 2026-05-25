@@ -109,7 +109,12 @@ inspect-layers:
 
 inspect-referrers:
 	@echo "\n=== Referrers (signatures / attestations attached by Chains) ==="
-	crane referrers $(IMAGE):latest
+	@echo "--- via oras (preferred) ---"
+	oras discover --format tree $(IMAGE):latest
+	@echo "--- via raw OCI Referrers API ---"
+	@DIGEST=$$(crane digest $(IMAGE):latest); \
+	curl -s -H "Accept: application/vnd.oci.image.index.v1+json" \
+	  "https://quay.io/v2/random-experiments/oci-spec-analysis/referrers/$$DIGEST" | jq .
 
 inspect-attestation:
 	@echo "\n=== Raw DSSE envelope from Tekton Chains ==="
